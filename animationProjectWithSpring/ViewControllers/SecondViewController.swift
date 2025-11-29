@@ -24,9 +24,9 @@ class SecondViewController: UIViewController {
         animationView.animate()
         
     }
-    func generateRandomAnimation() -> [Any] {
+    func generateRandomAnimation() {
         animation = Animation()
-        return animation.randomAnimation()
+        animation.randomAnimation()
     }
     
     @IBAction func backButton(_ sender: SpringButton) {

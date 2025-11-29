@@ -25,13 +25,16 @@ struct Animation {
     }
 
     
-    func randomAnimation() -> [Any] {
-        guard let theAnimation = animations.randomElement() else { return [] }
-        guard let theCurve = curves.randomElement() else { return [] }
-        let theForce = Double.random(in: 0.0...1.0).formatted(.number.precision(.fractionLength(1)))
-        let theDuration = Double.random(in: 0.0...1.0).formatted(.number.precision(.fractionLength(1)))
-        let theDelay = Double.random(in: 0.0...1.0).formatted(.number.precision(.fractionLength(1)))
-
-        return [theAnimation, theCurve, theForce, theDuration, theDelay]
+    mutating func randomAnimation() {
+        guard let theAnimation = animations.randomElement() else { return }
+        guard let theCurve = curves.randomElement() else { return }
+        
+        current = theAnimation
+        curve = theCurve
+        force = Double.random(in: 0.0...1.0)
+        duration = Double.random(in: 0.0...1.0)
+        delay = Double.random(in: 0.0...1.0)
+        
     }
+
 }
